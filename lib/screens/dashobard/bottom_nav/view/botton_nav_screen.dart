@@ -19,14 +19,16 @@ class BottomNavScreen extends GetView<BottomNavController> {
     return Scaffold(
       backgroundColor: kColorBackground,
       bottomNavigationBar: buildBottomNavigationMenu(context, controller),
-      body: IndexedStack(
-        index: controller.currentIndex.value,
-        children: [
-          HomeBaseScreen(),
-          CollectionsBaseScreen(),
-          MyProfileBaseScreen(),
-        ],
-      ),
+      body: Obx(() {
+        return IndexedStack(
+          index: controller.currentIndex.value,
+          children: [
+            HomeBaseScreen(),
+            CollectionsBaseScreen(),
+            MyProfileBaseScreen(),
+          ],
+        );
+      }),
     );
   }
 
