@@ -13,7 +13,8 @@ class AppPages {
     GetPage(
       name: _Paths.splashScreen,
       page: () => const SplashScreen(),
-    ), GetPage(
+    ),
+    GetPage(
       name: _Paths.bottomNav,
       page: () => const BottomNavScreen(),
     ),

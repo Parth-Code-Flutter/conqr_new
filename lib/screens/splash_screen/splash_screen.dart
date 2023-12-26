@@ -1,4 +1,4 @@
-import 'package:conqr_new/constants/image_consts.dart';
+import 'package:conqr_new/constants/image_constants.dart';
 import 'package:conqr_new/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
