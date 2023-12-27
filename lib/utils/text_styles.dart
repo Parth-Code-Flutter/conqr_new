@@ -9,6 +9,11 @@ class Font {
   static const gilroyMedium = "gilroyMedium";
   static const gilroyRegular = "gilroyRegular";
 
+  static const poppins = "Poppins";
+  static const poppinsRegular = "PoppinsRegular";
+  static const poppinsSemiBold = "PoppinsSemiBold";
+  static const poppinsBold = "PoppinsBold";
+
   static const inter = "Inter";
   static const interExtraBold = "InterExtraBold";
   static const interBold = "InterBold";
@@ -32,30 +37,30 @@ class TextStyles {
   static const double k28FontSize = 20;
   static const double k34FontSize = 34;
 
-  static TextStyle kPrimaryRegularGilroy({double fontSize = k14FontSize, Color colors = kColorPrimary}) {
+  static TextStyle kPrimaryRegularPoppins({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w400}) {
     return TextStyle(
       fontSize: fontSize,
       color: colors,
-      fontWeight: FontWeight.w400,
-      fontFamily: Font.gilroyRegular,
+      fontWeight: fontWeight,
+      fontFamily: Font.poppinsRegular,
     );
   }
 
-  static TextStyle kPrimarySemiBoldGilroy({double fontSize = k14FontSize, Color colors = kColorPrimary}) {
+  static TextStyle kPrimarySemiBoldPoppins({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w600}) {
     return TextStyle(
       fontSize: fontSize,
       color: colors,
-      fontWeight: FontWeight.w600,
-      fontFamily: Font.gilroySemiBold,
+      fontWeight: fontWeight,
+      fontFamily: Font.poppinsSemiBold,
     );
   }
 
-  static TextStyle kPrimaryBoldGilroy({double fontSize = k14FontSize, Color colors = kColorPrimary}) {
+  static TextStyle kPrimaryBoldPoppins({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w700}) {
     return TextStyle(
       fontSize: fontSize,
       color: colors,
-      fontWeight: FontWeight.w700,
-      fontFamily: Font.gilroyBold,
+      fontWeight: fontWeight,
+      fontFamily: Font.poppinsBold,
     );
   }
 }

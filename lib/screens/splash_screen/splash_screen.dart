@@ -15,9 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
   checkUserLoggedInOrNot() {
     try {
       Future.delayed(
-        Duration(seconds: 5),
+        Duration(seconds: 3),
         () {
-          Get.offAllNamed(Routes.bottomNav);
+          Get.offAllNamed(Routes.introductionScreen);
         },
       );
     } catch (e) {

@@ -45,8 +45,8 @@ class BottomNavScreen extends GetView<BottomNavController> {
               backgroundColor: kColorBackground,
               unselectedItemColor: kColorGrey,
               selectedItemColor: kColorBlack,
-              unselectedLabelStyle: TextStyles.kPrimaryRegularGilroy(fontSize: TextStyles.k12FontSize),
-              selectedLabelStyle: TextStyles.kPrimaryRegularGilroy(fontSize: TextStyles.k12FontSize),
+              unselectedLabelStyle: TextStyles.kPrimaryRegularPoppins(fontSize: TextStyles.k12FontSize),
+              selectedLabelStyle: TextStyles.kPrimaryRegularPoppins(fontSize: TextStyles.k12FontSize),
               items: [
                 BottomNavigationBarItem(
                   icon: Padding(
