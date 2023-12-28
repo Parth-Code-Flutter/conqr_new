@@ -8,6 +8,7 @@ mixin AppLocal {
   static const String kTermsConditions = 'kTermsConditions';
   static const String kHelloReader = 'kHelloReader';
   static const String kWelcomeToConqrApp = 'kWelcomeToConqrApp';
+  static const String kSearch  = 'kSearch';
 
   static const String kWelcomeToConqrAppText = 'kWelcomeToConqrAppText';
 
@@ -19,6 +20,7 @@ mixin AppLocal {
     kTermsConditions: 'Terms & Conditions',
     kHelloReader: 'Hello Reader',
     kWelcomeToConqrApp: 'Welcome to Conqr App',
+    kSearch : 'Search',
 
     kWelcomeToConqrAppText: 'Never have a day without learning, growing and becoming bit better.',
   };
