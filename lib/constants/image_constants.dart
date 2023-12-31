@@ -13,5 +13,6 @@ const String kProfileWithBGIcon = '$_iconPath/profile_with_bg_icon.svg';
 const String kProfileWithGreyBGIcon = '$_iconPath/profile_with_grey_bg_icon.svg';
 const String kForwardArrowIcon = '$_iconPath/forward_arrow_icon.svg';
 const String kSearchIcon = '$_iconPath/search_icon.svg';
+const String kShareIcon = '$_iconPath/share_icon.svg';
 
 const String kHowToWinFriendIcon = '$_iconPath/how_to_win_friend_icon.svg';

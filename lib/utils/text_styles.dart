@@ -14,12 +14,10 @@ class Font {
   static const poppinsSemiBold = "PoppinsSemiBold";
   static const poppinsBold = "PoppinsBold";
 
-  static const inter = "Inter";
-  static const interExtraBold = "InterExtraBold";
-  static const interBold = "InterBold";
-  static const interSemiBold = "InterSemiBold";
-  static const interMedium = "InterMedium";
-  static const interRegular = "InterRegular";
+  static const robotoSlab = "RobotoSlab";
+  static const robotoSlabRegular = "RobotoSlabRegular";
+  static const robotoSlabSemiBold = "RobotoSlabSemiBold";
+  static const robotoSlabBold = "RobotoSlabBold";
 }
 
 class TextStyles {
@@ -37,7 +35,7 @@ class TextStyles {
   static const double k28FontSize = 20;
   static const double k34FontSize = 34;
 
-  static TextStyle kPrimaryRegularPoppins({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w400}) {
+  static TextStyle kPrimaryRegularPoppins({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w500}) {
     return TextStyle(
       fontSize: fontSize,
       color: colors,
@@ -61,6 +59,43 @@ class TextStyles {
       color: colors,
       fontWeight: fontWeight,
       fontFamily: Font.poppinsBold,
+    );
+  }
+
+  static TextStyle kPrimaryRegularRobotoSlabWithUnderLine({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w500}) {
+    return TextStyle(
+      fontSize: fontSize,
+      color: colors,
+      fontWeight: fontWeight,
+      decoration: TextDecoration.underline,
+      fontFamily: Font.robotoSlabRegular,
+    );
+  }
+
+  static TextStyle kPrimaryRegularRobotoSlab({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w500}) {
+    return TextStyle(
+      fontSize: fontSize,
+      color: colors,
+      fontWeight: fontWeight,
+      fontFamily: Font.robotoSlabRegular,
+    );
+  }
+
+  static TextStyle kPrimarySemiBoldRobotoSlab({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w600}) {
+    return TextStyle(
+      fontSize: fontSize,
+      color: colors,
+      fontWeight: fontWeight,
+      fontFamily: Font.robotoSlabSemiBold,
+    );
+  }
+
+  static TextStyle kPrimaryBoldRobotoSlab({double fontSize = k14FontSize, Color colors = kColorPrimary, FontWeight fontWeight = FontWeight.w700}) {
+    return TextStyle(
+      fontSize: fontSize,
+      color: colors,
+      fontWeight: fontWeight,
+      fontFamily: Font.robotoSlabBold,
     );
   }
 }

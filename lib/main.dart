@@ -1,3 +1,4 @@
+import 'package:conqr_new/constants/color_constants.dart';
 import 'package:conqr_new/constants/localization.dart';
 import 'package:conqr_new/controller_binding/controller_binding.dart';
 import 'package:conqr_new/routes/app_pages.dart';
@@ -52,6 +53,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       initialBinding: ControllerBinding(),
+      theme: ThemeData(backgroundColor: kColorWhite,scaffoldBackgroundColor: kColorWhite),
       // home: SplashScreen(),
     );
   }

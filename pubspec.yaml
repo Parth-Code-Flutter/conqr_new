@@ -79,7 +79,7 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-      - asset: lib/assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: lib/assets/fonts/Poppins/Poppins-Black.ttf
     - family: PoppinsRegular
       fonts:
         - asset: lib/assets/fonts/Poppins/Poppins-Regular.ttf
@@ -89,6 +89,20 @@ flutter:
     - family: PoppinsBold
       fonts:
         - asset: lib/assets/fonts/Poppins/Poppins-Bold.ttf
+
+
+    - family: RobotoSlab
+      fonts:
+        - asset: lib/assets/fonts/RobotoSlab/RobotoSlab-Black.ttf
+    - family: RobotoSlabRegular
+      fonts:
+        - asset: lib/assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf
+    - family: RobotoSlabSemiBold
+      fonts:
+        - asset: lib/assets/fonts/RobotoSlab/RobotoSlab-SemiBold.ttf
+    - family: RobotoSlabBold
+      fonts:
+        - asset: lib/assets/fonts/RobotoSlab/RobotoSlab-Bold.ttf
 
   #
   # For details regarding fonts from package dependencies,

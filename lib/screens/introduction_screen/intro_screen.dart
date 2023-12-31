@@ -18,20 +18,20 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       body: IntroductionScreen(globalBackgroundColor: kColorWhite,
           pages: [
-            PageViewModel(
-              title: AppLocal.kWelcomeToConqrApp.getString(context),
-              body: AppLocal.kWelcomeToConqrAppText.getString(context),
-              image: buildImage(kIntroImg),
-              //getPageDecoration, a method to customise the page style
-              decoration: getPageDecoration(),
-            ),
-            PageViewModel(
-              title: AppLocal.kWelcomeToConqrApp.getString(context),
-              body: AppLocal.kWelcomeToConqrAppText.getString(context),
-              image: buildImage(kIntroImg),
-              //getPageDecoration, a method to customise the page style
-              decoration: getPageDecoration(),
-            ),
+            // PageViewModel(
+            //   title: AppLocal.kWelcomeToConqrApp.getString(context),
+            //   body: AppLocal.kWelcomeToConqrAppText.getString(context),
+            //   image: buildImage(kIntroImg),
+            //   //getPageDecoration, a method to customise the page style
+            //   decoration: getPageDecoration(),
+            // ),
+            // PageViewModel(
+            //   title: AppLocal.kWelcomeToConqrApp.getString(context),
+            //   body: AppLocal.kWelcomeToConqrAppText.getString(context),
+            //   image: buildImage(kIntroImg),
+            //   //getPageDecoration, a method to customise the page style
+            //   decoration: getPageDecoration(),
+            // ),
             PageViewModel(
               title: AppLocal.kWelcomeToConqrApp.getString(context),
               body: AppLocal.kWelcomeToConqrAppText.getString(context),
