@@ -40,6 +40,9 @@ dependencies:
   flutter_localization: ^0.2.0
   introduction_screen: ^3.1.12
 
+  flutter_card_swiper: ^6.0.0
+  card_swiper: ^3.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

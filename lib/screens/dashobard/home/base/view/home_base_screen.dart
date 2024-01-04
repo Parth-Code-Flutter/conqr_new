@@ -15,11 +15,11 @@ class HomeBaseScreen extends GetView<HomeBaseController> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 18,top: 38),
-              child: SvgPicture.asset(kAppIcon,height: 25),
-            ),
-            SizedBox(height: 45),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 18,top: 38),
+            //   child: SvgPicture.asset(kAppIcon,height: 25),
+            // ),
+            // SizedBox(height: 45),
             Expanded(child: collectionsDetailsListView(context),),
           ],
         ),
