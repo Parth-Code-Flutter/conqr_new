@@ -20,7 +20,12 @@ class HomeBaseScreen extends GetView<HomeBaseController> {
             //   child: SvgPicture.asset(kAppIcon,height: 25),
             // ),
             // SizedBox(height: 45),
-            Expanded(child: collectionsDetailsListView(context),),
+            Obx(() {
+              return Expanded(
+                child: collectionsDetailsListView(context,
+                    lessonsDataList: controller.lessonData.value.result),
+              );
+            }),
           ],
         ),
       ),
