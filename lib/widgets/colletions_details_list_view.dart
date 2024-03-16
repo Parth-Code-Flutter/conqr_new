@@ -20,7 +20,8 @@ collectionsDetailsListView(BuildContext context,
     itemBuilder: (context, index) {
       var data = lessonsDataList?[index];
       return Padding(
-        padding: const EdgeInsets.only(bottom: 26),
+        // padding: const EdgeInsets.only(bottom: 26),
+        padding: const EdgeInsets.symmetric(vertical: 26, horizontal: 14),
         child: Material(
           elevation: 5.0,
           shadowColor: kColorBlack.withOpacity(.25),
@@ -29,21 +30,30 @@ collectionsDetailsListView(BuildContext context,
             padding: EdgeInsets.only(top: 20, bottom: 26, left: 15, right: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      data?.title ?? '',
-                      style: TextStyles.kPrimaryBoldRobotoSlab(
-                          fontSize: TextStyles.k20FontSize),
+                    Expanded(
+                      child: Text(
+                        data?.title ?? '',
+                        maxLines: 2,
+                        style: TextStyles.kPrimaryBoldRobotoSlab(
+                            fontSize: TextStyles.k20FontSize),
+                      ),
                     ),
-                    SvgPicture.asset(kShareIcon),
+                    SizedBox(width: 10),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: SvgPicture.asset(kShareIcon),
+                    ),
                   ],
                 ),
                 SizedBox(height: 12),
                 Text(
-                  data?.description??'',
+                  data?.description ?? '',
                   style: TextStyles.kPrimaryRegularRobotoSlab(
                       fontSize: TextStyles.k16FontSize),
                 ),
@@ -54,10 +64,14 @@ collectionsDetailsListView(BuildContext context,
                 //       fontSize: TextStyles.k16FontSize),
                 // ),
                 SizedBox(height: 30),
-                Text(
-                  'Source Link : ${data?.referenceUrl??''}',
-                  style: TextStyles.kPrimaryRegularRobotoSlabWithUnderLine(
-                      fontSize: TextStyles.k16FontSize, colors: kColor1B57A6),
+                Visibility(
+                  visible: data?.referenceUrl != null &&
+                      (data?.referenceUrl ?? '').isNotEmpty,
+                  child: Text(
+                    'Source Link : ${data?.referenceUrl ?? ''}',
+                    style: TextStyles.kPrimaryRegularRobotoSlabWithUnderLine(
+                        fontSize: TextStyles.k16FontSize, colors: kColor1B57A6),
+                  ),
                 ),
               ],
             ),

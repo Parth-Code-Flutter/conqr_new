@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 class HomeBaseController extends GetxController {
   Rx<ResultData> lessonData = ResultData().obs;
+  RxBool isApiCalling =true.obs;
 
   @override
   void onInit() {
@@ -18,6 +19,7 @@ class HomeBaseController extends GetxController {
 
   getLessonDataFromServer() async {
     try {
+      isApiCalling.value=true;
       LessonCollectionReqModel reqModel =
           LessonCollectionReqModel(collectionId: 0, isCollection: false,page: 1,pageSize: 10);
       var response =
@@ -26,7 +28,9 @@ class HomeBaseController extends GetxController {
 
       lessonData.value = res.result ?? ResultData();
       print('lessonsDataList :: ${lessonData.value}');
+      isApiCalling.value=false;
     } catch (e) {
+      isApiCalling.value =false;
       debugPrintMethod(str: 'getLessonDataFromServer', data: e);
     }
   }

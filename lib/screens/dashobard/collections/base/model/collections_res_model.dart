@@ -92,13 +92,15 @@ class CollectionsResultData {
   String? referenceUrl;
   int? categoryIconType;
   int? scrollsCount;
+  bool? isVisited;
 
   CollectionsResultData(
       {this.id,
       this.description,
       this.referenceUrl,
       this.categoryIconType,
-      this.scrollsCount});
+      this.scrollsCount,
+      this.isVisited});
 
   CollectionsResultData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -106,6 +108,7 @@ class CollectionsResultData {
     referenceUrl = json['referenceUrl'];
     categoryIconType = json['categoryIconType'];
     scrollsCount = json['scrollsCount'];
+    isVisited = json['isVisited'] = false;
   }
 
   Map<String, dynamic> toJson() {
@@ -115,6 +118,7 @@ class CollectionsResultData {
     data['referenceUrl'] = referenceUrl;
     data['categoryIconType'] = categoryIconType;
     data['scrollsCount'] = scrollsCount;
+    data['isVisited'] = isVisited;
     return data;
   }
 }

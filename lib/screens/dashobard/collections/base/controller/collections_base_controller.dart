@@ -8,7 +8,12 @@ import 'package:get/get.dart';
 
 class CollectionsBaseController extends GetxController {
   Rx<Collections> collections = Collections().obs;
+  RxList<CollectionsResultData> searchCollectionList =
+      List<CollectionsResultData>.empty(growable: true).obs;
+
+  RxBool isApiCalling = true.obs;
   TextEditingController searchCollectionController = TextEditingController();
+  RxString searchStr = ''.obs;
 
   @override
   void onInit() {
@@ -16,20 +21,50 @@ class CollectionsBaseController extends GetxController {
     super.onInit();
   }
 
-  void navigateToCollectionsDetailsScreen() {
-    Get.toNamed(Routes.collectionsDetailsScreen);
+  Future<void> navigateToCollectionsDetailsScreen(
+      int index, CollectionsResultData data) async {
+    await Get.toNamed(Routes.collectionsDetailsScreen, arguments: [
+      data,
+      collections.value.result?.result,
+    ]);
+    int i = collections.value.result?.result
+            ?.indexWhere((element) => element.isVisited == true) ??
+        -1;
+    if (i != -1) {
+      collections.value.result?.result?[i].isVisited = false;
+    }
+    collections.value.result?.result?[index].isVisited = true;
+    collections.refresh();
   }
 
   getCollectionsDataFromServer() async {
     try {
+      isApiCalling.value = true;
       LessonCollectionReqModel reqModel =
           LessonCollectionReqModel(page: 1, pageSize: 10);
 
       var res = await Get.find<CollectionsRepo>()
           .getCollectionsDataFromApi(reqModel: reqModel);
       collections.value = Collections.fromJson(res);
+      isApiCalling.value = false;
     } catch (e) {
+      isApiCalling.value = false;
       debugPrintMethod(str: 'getCollectionsDataFromServer', data: e);
+    }
+  }
+
+  void searchCollectionFromList() {
+    searchCollectionList.clear();
+    if (searchStr.isNotEmpty) {
+      collections.value.result?.result?.forEach(
+        (element) {
+          if ((element.description ?? '')
+              .toLowerCase()
+              .contains(searchStr.value.trim().toLowerCase())) {
+            searchCollectionList.add(element);
+          }
+        },
+      );
     }
   }
 }

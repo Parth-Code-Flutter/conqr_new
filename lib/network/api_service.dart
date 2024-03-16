@@ -46,6 +46,7 @@ class ApiService {
   Future<Response> post(String path,
       {required Map<String, dynamic> data, bool isShowLoader = true}) async {
     if (isShowLoader) {
+      debugPrintMethod(str: 'post method', data: data);
       AlertMessageUtils().showProgressDialog();
     }
     try {

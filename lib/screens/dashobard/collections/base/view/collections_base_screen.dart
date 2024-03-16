@@ -14,17 +14,26 @@ class CollectionsBaseScreen extends GetView<CollectionsBaseController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: kColorWhite,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
-            children: [
-              searchTextField(context),
-              collectionsListView(context),
-            ],
-          ),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: kColorWhite,
+          body: Obx(() {
+            return controller.isApiCalling.value
+                ? SizedBox()
+                : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    child: Column(
+                      children: [
+                        searchTextField(context),
+                        collectionsListView(context),
+                      ],
+                    ),
+                  );
+          }),
         ),
       ),
     );
@@ -40,12 +49,34 @@ class CollectionsBaseScreen extends GetView<CollectionsBaseController> {
           textFieldBorderColor: kColorWhite,
           controller: controller.searchCollectionController,
           hintText: AppLocal.kSearch.getString(context),
+          onChanged: (String v) {
+            if (v.trim().isNotEmpty) {
+              controller.searchStr.value = v;
+              controller.searchCollectionFromList();
+            } else {
+              controller.searchStr.value = '';
+            }
+          },
           hintTextStyle: TextStyles.kPrimaryRegularPoppins(
               fontSize: TextStyles.k16FontSize, colors: kColorGrey),
           preFixIcon: Padding(
             padding:
-            const EdgeInsets.only(left: 18, top: 16, bottom: 16, right: 8),
+                const EdgeInsets.only(left: 18, top: 16, bottom: 16, right: 8),
             child: SvgPicture.asset(kSearchIcon),
+          ),
+          suffixIcon: Obx(
+            () => Visibility(
+              visible: controller.searchStr.value.trim().isNotEmpty,
+              child: GestureDetector(
+                onTap: () {
+                  controller.searchCollectionController.text = '';
+                  controller.searchStr.value = '';
+                  controller.searchCollectionList.clear();
+                  FocusScope.of(context).unfocus();
+                },
+                child: const Icon(Icons.close),
+              ),
+            ),
           ),
         ),
       ),
@@ -58,14 +89,20 @@ class CollectionsBaseScreen extends GetView<CollectionsBaseController> {
         child: Padding(
           padding: const EdgeInsets.only(top: 30),
           child: ListView.builder(
-            itemCount: controller.collections.value.result?.result?.length,
+            itemCount: controller.searchStr.value.isNotEmpty
+                ? controller.searchCollectionList.length
+                : controller.collections.value.result?.result?.length,
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              var data = controller.collections.value.result?.result?[index];
+              var data = controller.searchStr.value.isNotEmpty
+                  ? controller.searchCollectionList[index]
+                  : controller.collections.value.result?.result?[index];
               return GestureDetector(
                 onTap: () {
-                  // controller.navigateToCollectionsDetailsScreen();
+                  if ((data?.scrollsCount ?? 0) > 0) {
+                    controller.navigateToCollectionsDetailsScreen(index, data!);
+                  }
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 15),
@@ -76,7 +113,9 @@ class CollectionsBaseScreen extends GetView<CollectionsBaseController> {
                       // margin: const EdgeInsets.only(bottom: 15),
                       decoration: BoxDecoration(
                           border: Border.all(
-                              color: index == 0 ? kColorBlack : kColorWhite,
+                              color: data?.isVisited == true
+                                  ? kColorBlack
+                                  : kColorWhite,
                               width: .5),
                           borderRadius: BorderRadius.circular(10)),
                       child: ListTile(

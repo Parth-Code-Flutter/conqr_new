@@ -16,15 +16,22 @@ class CollectionsDetailsScreen extends GetView<CollectionsDetailsController> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kColorWhite,
-          title:  Text(
-            'How to win friends',
-            style: TextStyles.kPrimaryRegularPoppins(fontWeight: FontWeight.w500, colors: kColorNavyBlue, fontSize: TextStyles.k16FontSize),
+          title: Text(
+            controller.collectionDetailsData.value.description ?? '',
+            style: TextStyles.kPrimaryRegularPoppins(
+                fontWeight: FontWeight.w500,
+                colors: kColorNavyBlue,
+                fontSize: TextStyles.k16FontSize),
           ),
         ),
         backgroundColor: kColorBackground,
-        body: collectionsDetailsListView(context),
+        body: Obx(
+          () {
+            return collectionsDetailsListView(context,
+                lessonsDataList: controller.lessonData.value.result ?? []);
+          },
+        ),
       ),
     );
   }
-
 }
