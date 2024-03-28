@@ -23,10 +23,8 @@ class CollectionsBaseController extends GetxController {
 
   Future<void> navigateToCollectionsDetailsScreen(
       int index, CollectionsResultData data) async {
-    await Get.toNamed(Routes.collectionsDetailsScreen, arguments: [
-      data,
-      collections.value.result?.result,
-    ]);
+    await Get.toNamed(Routes.collectionsDetailsScreen,
+        arguments: [data, collections.value.result?.result, index]);
     int i = collections.value.result?.result
             ?.indexWhere((element) => element.isVisited == true) ??
         -1;

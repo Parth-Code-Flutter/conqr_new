@@ -79,9 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/WhatsApp Image 2024-03-15 at 11.52.42.jpeg" />
-                                                <entry key="scalingPercent" value="95" />
-                                                <entry key="trimmed" value="true" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/Conqur (2).png" />
+                                                <entry key="scalingPercent" value="55" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -114,7 +113,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="f6f7f7" />
+                                      <entry key="backgroundColor" value="020202" />
                                     </map>
                                   </option>
                                 </PersistentState>

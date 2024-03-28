@@ -16,21 +16,35 @@ class CollectionsDetailsScreen extends GetView<CollectionsDetailsController> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kColorWhite,
-          title: Text(
-            controller.collectionDetailsData.value.description ?? '',
-            style: TextStyles.kPrimaryRegularPoppins(
-                fontWeight: FontWeight.w500,
-                colors: kColorNavyBlue,
-                fontSize: TextStyles.k16FontSize),
-          ),
+          title: Obx(() {
+            return Text(
+              // controller.collectionDetailsData.value.description ?? '',
+              controller.list[controller.currentCollectionIndex].description ??
+                  '',
+              style: TextStyles.kPrimaryRegularPoppins(
+                  fontWeight: FontWeight.w500,
+                  colors: kColorNavyBlue,
+                  fontSize: TextStyles.k16FontSize),
+            );
+          }),
         ),
         backgroundColor: kColorBackground,
-        body: Obx(
-          () {
-            return collectionsDetailsListView(context,
-                lessonsDataList: controller.lessonData.value.result ?? []);
-          },
-        ),
+        body: Obx(() {
+          return controller.resultsList.isEmpty
+              ? Text('')
+              : CollectionsDetailsListView(
+            // lessonsDataList: controller.lessonData.value.result ?? [],
+            lessonsDataList: controller.resultsList,
+            callBack: (p0) {
+              // if(controller.lessonData.value.result?.length == (p0+1)){
+              if (controller.resultsList.length == (p0 + 1)) {
+                print('true');
+                controller.updateCollectionsList();
+              }
+              print(p0);
+            },
+          );
+        }),
       ),
     );
   }

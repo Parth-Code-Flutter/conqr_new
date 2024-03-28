@@ -1,5 +1,5 @@
 mixin AppLocal {
-  static const String appName = 'conqr-new';
+  static const String appName = 'Conqur';
 
   static const String kHome = 'kHome';
   static const String kCollections = 'kCollections';
@@ -8,7 +8,7 @@ mixin AppLocal {
   static const String kTermsConditions = 'kTermsConditions';
   static const String kHelloReader = 'kHelloReader';
   static const String kWelcomeToConqrApp = 'kWelcomeToConqrApp';
-  static const String kSearch  = 'kSearch';
+  static const String kSearch = 'kSearch';
 
   static const String kWelcomeToConqrAppText = 'kWelcomeToConqrAppText';
 
@@ -19,9 +19,9 @@ mixin AppLocal {
     kPrivacyPolicy: 'Privacy Policy',
     kTermsConditions: 'Terms & Conditions',
     kHelloReader: 'Hello Reader',
-    kWelcomeToConqrApp: 'Welcome to Conqr App',
-    kSearch : 'Search',
-
-    kWelcomeToConqrAppText: 'Never have a day without learning, growing and becoming bit better.',
+    kWelcomeToConqrApp: 'Welcome Reader',
+    kSearch: 'Search',
+    kWelcomeToConqrAppText:
+        'Your daily 2 minutes self improvement notes are ready.',
   };
 }

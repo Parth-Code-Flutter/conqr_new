@@ -8,9 +8,11 @@ import 'package:get/get.dart';
 
 class CollectionsDetailsController extends GetxController {
   Rx<ResultData> lessonData = ResultData().obs;
+  RxList<Result> resultsList = List<Result>.empty(growable: true).obs;
   Rx<CollectionsResultData> collectionDetailsData = CollectionsResultData().obs;
   RxList<CollectionsResultData> list =
       List<CollectionsResultData>.empty(growable: true).obs;
+  int currentCollectionIndex = 0;
 
   @override
   void onInit() {
@@ -19,18 +21,20 @@ class CollectionsDetailsController extends GetxController {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await getLessonDataFromServer();
     });
+
     super.onInit();
   }
 
   void getIntentData() {
     collectionDetailsData.value = Get.arguments[0];
     list.value = Get.arguments[1];
+    currentCollectionIndex = Get.arguments[2] ;
   }
 
-  getLessonDataFromServer() async {
+  getLessonDataFromServer({int? collectionID}) async {
     try {
       LessonCollectionReqModel reqModel = LessonCollectionReqModel(
-          collectionId: collectionDetailsData.value.id ?? 0,
+          collectionId: collectionID ?? collectionDetailsData.value.id ?? 0,
           isCollection: true,
           page: 1,
           pageSize: 10);
@@ -38,10 +42,21 @@ class CollectionsDetailsController extends GetxController {
           await Get.find<HomeRepo>().getLessonDataFromApi(reqModel: reqModel);
       var res = LessonsResData.fromJson(response);
 
-      lessonData.value = res.result ?? ResultData();
-      print('lessonsDataList :: ${lessonData.value}');
+      resultsList.addAll(res.result?.result??[]);
+      print('length ::: ${resultsList.length}');
+      // lessonData.value = res.result ?? ResultData();
+      // print('lessonsDataList :: ${lessonData.value}');
     } catch (e) {
       debugPrintMethod(str: 'getLessonDataFromServer', data: e);
+    }
+  }
+
+  Future<void> updateCollectionsList() async {
+    if ((currentCollectionIndex+1) != list.length) {
+      currentCollectionIndex  = currentCollectionIndex+ 1;
+      int id = list[currentCollectionIndex].id??0;
+      await getLessonDataFromServer(collectionID: id);
+      list.refresh();
     }
   }
 }

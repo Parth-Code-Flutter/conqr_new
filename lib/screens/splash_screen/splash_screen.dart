@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   checkUserLoggedInOrNot() {
     try {
       Future.delayed(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () {
           Get.offAllNamed(Routes.introductionScreen);
         },
@@ -34,7 +34,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: SvgPicture.asset(kAppIcon)),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(68),
+          child: Image.asset(kAppIconPNG),
+        ),
+      ),
     );
   }
 }

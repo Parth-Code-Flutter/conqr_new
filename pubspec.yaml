@@ -40,10 +40,14 @@ dependencies:
   flutter_localization: ^0.2.0
   introduction_screen: ^3.1.12
 
-  flutter_card_swiper: ^6.0.0
+#  flutter_card_swiper: ^6.0.0
   card_swiper: ^3.0.1
   dio: ^5.4.0
   loading_indicator: ^3.1.1
+  share_plus: ^7.2.2
+  path_provider: ^2.1.2
+  screenshot: ^2.3.0
+  widgets_to_image: ^0.0.2
 
 dev_dependencies:
   flutter_test:

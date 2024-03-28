@@ -3,7 +3,7 @@ const String _iconPath = 'lib/assets/icons';
 
 const String kIntroImg = '$_imgPath/intro_img.svg';
 
-const String kAppIconJPG = '$_iconPath/app_logo.jpg';
+const String kAppIconPNG = '$_iconPath/app_logo.png';
 
 const String kAppIcon = '$_iconPath/app_icon.svg';
 const String kHomeIcon = '$_iconPath/home_icon.svg';
@@ -18,3 +18,5 @@ const String kSearchIcon = '$_iconPath/search_icon.svg';
 const String kShareIcon = '$_iconPath/share_icon.svg';
 
 const String kHowToWinFriendIcon = '$_iconPath/how_to_win_friend_icon.svg';
+
+const String quoteBG = '$_imgPath/quote_bg.svg';

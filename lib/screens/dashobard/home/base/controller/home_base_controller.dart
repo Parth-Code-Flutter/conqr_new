@@ -4,13 +4,17 @@ import 'package:conqr_new/screens/dashobard/home/base/model/lesson_collection_re
 import 'package:conqr_new/repo/home_repo.dart';
 import 'package:conqr_new/screens/dashobard/home/base/model/lesson_entity_model.dart';
 import 'package:conqr_new/screens/dashobard/home/base/model/lesson_res_model.dart';
+import 'package:conqr_new/screens/dashobard/home/base/view/home_base_screen.dart';
 import 'package:conqr_new/utils/debug_print.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:screenshot/screenshot.dart';
 
 class HomeBaseController extends GetxController {
   Rx<ResultData> lessonData = ResultData().obs;
   RxBool isApiCalling =true.obs;
 
+  ScreenshotController screenshotController = ScreenshotController();
   @override
   void onInit() {
     Get.lazyPut(() => HomeRepo(), fenix: true);
